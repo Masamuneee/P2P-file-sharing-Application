@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <input type="checkbox" id="check">
+        <div class="registration form">
+            <header>Signup</header>
+            <form action="{{ url_for('register') }}" method="POST">
+                <input type="text" name="username" placeholder="Enter your username"
+                    data-validate="Username is required" required>
+                <input type="password" name="password" placeholder="Create a password"
+                    data-validate="Password is required" required>
+                <input type="password" name="confirm_password" placeholder="Confirm your password"
+                    data-validate="Confirmed password is required" required>
+                <input type="submit" class="button" value="Signup">
+            </form>
+            <div class="signup">
+                <span class="signup">Already have an account?
+                    <a href="{{ url_for('login') }}">Login</a>
+                </span>
+            </div>
+            {% if message %}
+            <script>
+                alert("{{ message }}");
+            </script>
+            {% endif %}
+        </div>
+    </div>
+    <ul>
+        <li><a class="active" href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('publish') }}">Publish</a></li>
+        <li><a href="{{ url_for('fetch') }}">Fetch</a></li>
+        <li><a href="{{ url_for('discover') }}">Discover</a></li>
+        <li><a href="{{ url_for('ping') }}">Ping</a></li>
+        <li style="float:right"><a href="{{ url_for('login') }}">Login</a></li>
+        <li style="float:right"><a href="{{ url_for('register') }}">Register</a></li>
+    </ul>
+</body>
+
+</html>

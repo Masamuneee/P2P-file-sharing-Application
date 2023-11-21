@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  margin: 0;
+}
+
+.container {
+  width: 600px;
+  height: 200px;
+  background-color: #4a4a4a9e;
+  color: #fff;
+  text-align: center;
+  line-height: 1.5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 20px;
+}
+
+.result {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.input-rectangle {
+  margin-top: 10px;
+  width: 80%;
+  max-width: 300px;
+  height: 30px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.find-button {
+  margin-top: 20px;
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}

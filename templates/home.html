@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+
+    <div class="home-section">
+        <div class="welcome-section">
+            <h1>Welcome to P2P File-sharing system</h1>
+            <p>This project is made by undergraduate from HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY</p>
+        </div>
+
+        <div class="authors">
+            <div class="author">
+                <img src="{{url_for('static', filename='admin.jpg')}}" alt="Author 1 Image">
+                <h2>Phạm Quang Minh</h2>
+                <p>A Security Weber from Bach Khoa Information Security Club</p>
+            </div>
+
+            <div class="author">
+                <img src="{{url_for('static', filename='admin.jpg')}}" alt="Author 2 Image">
+                <h2>Nguyễn Minh Quang</h2>
+                <p>Chó ngu</p>
+            </div>
+
+            <div class="author">
+                <img src="{{url_for('static', filename='admin.jpg')}}" alt="Author 3 Image">
+                <h2>Trần Nguyễn Gia Bảo</h2>
+                <p>undergraduate from HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY</p>
+            </div>
+
+            <div class="author">
+                <img src="{{url_for('static', filename='admin.jpg')}}" alt="Author 4 Image">
+                <h2>Trần Tuấn Đạt</h2>
+                <p>undergraduate from HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY</p>
+            </div>
+        </div>
+        {% if message %}
+        <script>
+            alert("{{ message }}");
+        </script>
+        {% endif %}
+    </div>
+
+    <ul>
+        <li><a class="active" href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('publish') }}">Publish</a></li>
+        <li><a href="{{ url_for('fetch') }}">Fetch</a></li>
+        <li><a href="{{ url_for('discover') }}">Discover</a></li>
+        <li><a href="{{ url_for('ping') }}">Ping</a></li>
+        <li style="float:right"><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+
+
+</body>
+
+</html>

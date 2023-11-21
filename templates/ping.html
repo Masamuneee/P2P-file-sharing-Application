@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='retangle.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Ping</div>
+        <div class="description">Ping check the host named hostname.</div>
+        <input type="text" class="input-rectangle" placeholder="Enter hostname">
+        <button class="find-button">Ping</button>
+        <div class="result">Result:</div>
+    </div>
+    {% if message %}
+    <script>
+        alert("{{ message }}");
+    </script>
+    {% endif %}
+    <ul>
+        <li><a class="active" href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('publish') }}">Publish</a></li>
+        <li><a href="{{ url_for('fetch') }}">Fetch</a></li>
+        <li><a href="{{ url_for('discover') }}">Discover</a></li>
+        <li><a href="{{ url_for('ping') }}">Ping</a></li>
+        <li style="float:right"><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+
+</body>
+
+</html>
