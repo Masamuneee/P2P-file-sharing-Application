@@ -80,7 +80,10 @@ def publish():
         if request.form["filename"] == "":
             filename = secure_filename(file.filename)
         else:
+            if not allowed_file(request.form["filename"], allowed_extensions):
+                return render_template("publish.html", message="Invalid file type")
             filename = request.form["filename"]
+
         file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
 
         if not os.path.exists(app.config["UPLOAD_FOLDER"]):
