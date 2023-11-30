@@ -10,13 +10,19 @@
     <div class="container">
         <div class="title">Ping</div>
         <div class="description">Ping check the host named hostname.</div>
-        <input type="text" class="input-rectangle" placeholder="Enter hostname">
-        <button class="find-button">Ping</button>
-        <div class="result">Result:</div>
+        <form action="{{ url_for('ping') }}" method="post">
+            <input type="text" class="input-rectangle" name="hostname" placeholder="Enter the hostname" required>
+            <button class="find-button">Ping</button>
+        </form>
+        <div class="result">Result:
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %}
+        </div>
     </div>
-    {% if message %}
+    {% if alert %}
     <script>
-        alert("{{ message }}");
+        alert("{{ alert }}");
     </script>
     {% endif %}
     <ul>

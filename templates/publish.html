@@ -7,16 +7,20 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container_publish">
         <div class="title">Publish</div>
         <div class="description">Upload a file that you want to publish.</div>
-        <input type="text" class="input-rectangle" placeholder="Enter hostname">
-        <button class="find-button">Publish</button>
+        <form action="{{ url_for('publish') }}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" class="input-file" accept=".txt, .pdf, .docx, .xlsx">
+            <input type="text" class="input-rectangle" name="filename" placeholder="Enter the file name to save">
+            <button class="find-button" type="submit">Publish</button>
+        </form>
         <div class="result">Result:</div>
+        {% if message %}{{ message }}{% endif %}
     </div>
-    {% if message %}
+    {% if alert %}
     <script>
-        alert("{{ message }}");
+        alert("{{ alert }}");
     </script>
     {% endif %}
     <ul>
@@ -27,7 +31,6 @@
         <li><a href="{{ url_for('ping') }}">Ping</a></li>
         <li style="float:right"><a href="{{ url_for('logout') }}">Logout</a></li>
     </ul>
-
 </body>
 
 </html>

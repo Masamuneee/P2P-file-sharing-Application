@@ -10,13 +10,21 @@
     <div class="container">
         <div class="title">Fetch</div>
         <div class="description">Fetch a copy of the file that you want.</div>
-        <input type="text" class="input-rectangle" placeholder="Enter hostname">
-        <button class="find-button">Fetch</button>
-        <div class="result">Result:</div>
+
+        <form action="{{ url_for('fetch') }}" method="post">
+            <input type="text" class="input-rectangle" name="filename" placeholder="Enter the file name">
+            <button class="find-button" type="submit">Fetch</button>
+        </form>
+
+        {% if message %}
+        <div class="result"> Result:
+            <span>{{ message }}</span>
+        </div>
+        {% endif %}
     </div>
-    {% if message %}
+    {% if alert %}
     <script>
-        alert("{{ message }}");
+        alert("{{ alert }}");
     </script>
     {% endif %}
     <ul>
@@ -27,7 +35,6 @@
         <li><a href="{{ url_for('ping') }}">Ping</a></li>
         <li style="float:right"><a href="{{ url_for('logout') }}">Logout</a></li>
     </ul>
-
 </body>
 
 </html>
